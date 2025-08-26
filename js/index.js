@@ -1,4 +1,7 @@
-// slå dig løs her... 
-
-//eksempel på at udskrive alle overskrifter i services i konsollen:
-services.forEach(service => console.log(service.headline))
+/**
+ * @param {Hero} hero
+ * @param {Service[]} services
+ * @param {Facilities} facilities
+ * @param {Sites} sites
+ * @param {Advantage[]} advantages
+*/

@@ -1,4 +1,18 @@
+/**
+ * Type definitions for data structures used throughout the application.
+ * These define the shape and properties of objects used for different sections.
+ * 
+ * @typedef {{ image: string, headline: string, copy: string, icon: string }} Hero
+ * @typedef {{ illustration: string, headline: string, text: string, linktext: string }} Service
+ * @typedef {{ icon: string, headline: string, text: string }} FacilitiesOption
+ * @typedef {{ headline: string, options: FacilitiesOption[] }} Facilities
+ * @typedef {{ img: string, name: string, city: string }} Place
+ * @typedef {{ headline: string, text: string, btnicon: string, places: Place[] }} Sites
+ * @typedef {{ icon: string, headline: string, text: string }} Advantage
+ * 
+ */
 
+/** @type {Hero} */
 let hero = {
     image: "https://dazzling-squirrel-77a63d.netlify.app/imgs/hero.png",
     headline: "Find out how we can save your time in Backpacking in Europe",
@@ -6,7 +20,7 @@ let hero = {
     icon: "https://dazzling-squirrel-77a63d.netlify.app/imgs/icons/Globe.png"
 }
 
-
+/** @type {Service[]} */
 let services = [
     {
         illustration: "https://dazzling-squirrel-77a63d.netlify.app/imgs/illustrations/exploring.png",
@@ -28,6 +42,7 @@ let services = [
     },
 ]
 
+/** @type {Facilities} */
 let facilities = {
     headline: "Making your facility known is our priority",
     options : [
@@ -54,6 +69,7 @@ let facilities = {
     ]
 }
 
+/** @type {Sites} */
 let sites = {
     headline: "Join the community campervan sites managers.",
     text: "Discover all the equibbed areas in Italy. Find the shop with all the services for you and your camper.",
@@ -77,6 +93,7 @@ let sites = {
     ]
 }
 
+/** @type {Advantage[]} */
 let advantages = [
     {
         icon:"https://dazzling-squirrel-77a63d.netlify.app/imgs/icons/compare.png",
