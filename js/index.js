@@ -133,6 +133,64 @@ function renderFacilities(facilitiesData) {
     section.appendChild(facilitiesContainer);
 }
 
+function renderSites(sitesData) {
+    const section = document.querySelector('.sites');
+    if (!section) return;
+
+    const sitesContainer = createElement('section', { class: 'sites-container' });
+
+    // First column - main content
+    const mainColumn = createElement('article', { class: 'sites-main-column' });
+
+    const headline = createElement('h2', { class: 'sites-headline' }, sitesData.headline);
+    const text = createElement('p', { class: 'sites-text' }, sitesData.text);
+
+    const button = createElement('button', { class: 'sites-button' });
+    const buttonIcon = createElement('img', {
+        src: sitesData.btnicon,
+        alt: 'Arrow icon',
+        class: 'sites-button-icon'
+    });
+    button.appendChild(buttonIcon);
+    button.appendChild(document.createTextNode('Start'));
+
+    mainColumn.appendChild(headline);
+    mainColumn.appendChild(text);
+    mainColumn.appendChild(button);
+
+    // Places grid (remaining columns)
+    const placesGrid = createElement('div', { class: 'sites-places-grid' });
+
+    sitesData.places.forEach(place => {
+        const placeItem = createElement('article', { class: 'sites-place-item' });
+
+        const placeImage = createElement('img', {
+            src: place.img,
+            alt: place.name,
+            class: 'sites-place-image'
+        });
+
+        const placeName = createElement('h3', { class: 'sites-place-name' }, place.name);
+        const placeCity = createElement('p', { class: 'sites-place-city' }, place.city);
+        const viewSiteLink = createElement('a', {
+            href: '#',
+            class: 'sites-view-site-link'
+        }, 'View the site');
+
+        placeItem.appendChild(placeImage);
+        placeItem.appendChild(placeName);
+        placeItem.appendChild(placeCity);
+        placeItem.appendChild(viewSiteLink);
+
+        placesGrid.appendChild(placeItem);
+    });
+
+    sitesContainer.appendChild(mainColumn);
+    sitesContainer.appendChild(placesGrid);
+    section.appendChild(sitesContainer);
+}
+
 renderHero(hero)
 renderServices(services)
 renderFacilities(facilities)
+renderSites(sites)
