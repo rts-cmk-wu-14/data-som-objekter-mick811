@@ -95,5 +95,44 @@ function renderServices(servicesData) {
     section.appendChild(servicesContainer);
 }
 
+function renderFacilities(facilitiesData) {
+    const section = document.querySelector('.facilities');
+    if (!section) return;
+
+    const facilitiesContainer = createElement('section', { class: 'facilities-container' });
+
+    // Main headline
+    const mainHeadline = createElement('h2', { class: 'facilities-main-headline' }, facilitiesData.headline);
+    facilitiesContainer.appendChild(mainHeadline);
+
+    // Options grid
+    const optionsGrid = createElement('div', { class: 'facilities-options-grid' });
+
+    facilitiesData.options.forEach(option => {
+        const optionItem = createElement('article', { class: 'facility-option' });
+
+        const icon = createElement('img', {
+            src: option.icon,
+            alt: option.headline,
+            class: 'facility-icon'
+        });
+
+        const headline = createElement('h3', { class: 'facility-headline' }, option.headline);
+        const text = createElement('p', { class: 'facility-text' }, option.text);
+        const showMoreButton = createElement('a', { class: 'facility-show-more' }, 'Show more');
+
+        optionItem.appendChild(icon);
+        optionItem.appendChild(headline);
+        optionItem.appendChild(text);
+        optionItem.appendChild(showMoreButton);
+
+        optionsGrid.appendChild(optionItem);
+    });
+
+    facilitiesContainer.appendChild(optionsGrid);
+    section.appendChild(facilitiesContainer);
+}
+
 renderHero(hero)
 renderServices(services)
+renderFacilities(facilities)
