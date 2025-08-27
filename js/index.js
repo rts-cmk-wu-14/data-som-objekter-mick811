@@ -62,4 +62,38 @@ function renderHero(heroData) {
     section.appendChild(heroContainer);
 }
 
+function renderServices(servicesData) {
+    const section = document.querySelector('.services');
+    if (!section) return;
+
+    const servicesContainer = createElement('section', { class: 'services-container' });
+
+    servicesData.forEach(service => {
+        const serviceItem = createElement('article', { class: 'service-item' });
+
+        const illustration = createElement('img', {
+            src: service.illustration,
+            alt: service.headline,
+            class: 'service-illustration'
+        });
+
+        const headline = createElement('h3', { class: 'service-headline' }, service.headline);
+        const text = createElement('p', { class: 'service-text' }, service.text);
+        const link = createElement('a', {
+            href: '#',
+            class: 'service-link'
+        }, service.linktext);
+
+        serviceItem.appendChild(illustration);
+        serviceItem.appendChild(headline);
+        serviceItem.appendChild(text);
+        serviceItem.appendChild(link);
+
+        servicesContainer.appendChild(serviceItem);
+    });
+
+    section.appendChild(servicesContainer);
+}
+
 renderHero(hero)
+renderServices(services)
