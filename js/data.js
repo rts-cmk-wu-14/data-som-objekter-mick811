@@ -10,6 +10,7 @@
  * @typedef {{ headline: string, text: string, btnicon: string, places: Place[] }} Sites
  * @typedef {{ icon: string, headline: string, text: string }} Advantage
  * 
+ * 
  */
 
 /** @type {Hero} */
@@ -113,3 +114,91 @@ let advantages = [
 ]
 
 // Opret dit dataobjekt til footerens indhold herunder
+let footer = {
+    title: "Easy Camper",
+    slogan: "When Passion Meets Comfort.",
+    options: [
+        {
+            headline: "Discover the Network",
+            links: [
+                {
+                    text: "Where to shop",
+                    href: "#"
+                },
+                {
+                    text: "Tour Guided",
+                    href: "#"
+                },
+                {
+                    text: "Our Tours",
+                    href: "#"
+                },
+                {
+                    text: "About Us",
+                    href: "#"
+                }
+            ]
+        },
+        {
+            headline: "Become a Manager",
+            links: [
+                {
+                    text: "Join your Pairing",
+                    href: "#"
+                },
+                {
+                    text: "Offer your Service",
+                    href: "#"
+                },
+                {
+                    text: "Are you a guide?",
+                    href: "#"
+                }
+            ]
+        },
+        {
+            headline: "Assistance",
+            links: [
+                {
+                    text: "Support Center",
+                    href: "#"
+                },
+                {
+                    text: "FAQs",
+                    href: "#"
+                },
+                {
+                    text: "Cancellation Options",
+                    href: "#"
+                },
+                {
+                    text: "Reliability and Sequrity",
+                    href: "#"
+                }
+            ]
+        }
+    ],
+    copyright: "EasyCamper. All rights reserved.",
+    importantLinks: [
+        {
+            text: "About",
+            href: "#"
+        },
+        {
+            text: "Site Map",
+            href: "#"
+        },
+        {
+            text: "Terms",
+            href: "#"
+        },
+        {
+            text: "Privacy Policy",
+            href: "#"
+        },
+        {
+            text: "Teams",
+            href: "#"
+        },
+    ]
+}

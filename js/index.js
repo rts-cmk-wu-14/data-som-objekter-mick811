@@ -226,8 +226,73 @@ function renderAdvantages(advantagesData) {
     section.appendChild(advantagesContainer);
 }
 
+function renderFooter(footerData) {
+    const section = document.querySelector('.footer');
+    if (!section) return;
+
+    const footerContainer = createElement('footer', { class: 'footer-container' });
+
+    // First row - 4 columns
+    const firstRow = createElement('div', { class: 'footer-first-row' });
+
+    // Title and slogan
+    const titleSlogan = createElement('div', { class: 'footer-title-slogan' });
+    const title = createElement('h3', { class: 'footer-title' }, footerData.title);
+    const slogan = createElement('p', { class: 'footer-slogan' }, footerData.slogan);
+    titleSlogan.appendChild(title);
+    titleSlogan.appendChild(slogan);
+    firstRow.appendChild(titleSlogan);
+
+    // All three option groups
+    footerData.options.forEach(option => {
+        const optionGroup = createElement('div', { class: 'footer-option-group' });
+        const optionHeadline = createElement('h4', { class: 'footer-option-headline' }, option.headline);
+        const optionLinks = createElement('ul', { class: 'footer-links' });
+
+        option.links.forEach(link => {
+            const li = createElement('li', { class: 'footer-link-item' });
+            const a = createElement('a', { href: link.href, class: 'footer-link' }, link.text);
+            li.appendChild(a);
+            optionLinks.appendChild(li);
+        });
+
+        optionGroup.appendChild(optionHeadline);
+        optionGroup.appendChild(optionLinks);
+        firstRow.appendChild(optionGroup);
+    });
+
+    // Second row - copyright and important links
+    const secondRow = createElement('div', { class: 'footer-second-row' });
+
+    // Copyright
+    const copyright = createElement('div', { class: 'footer-copyright' });
+    const copyrightText = createElement('p', { class: 'footer-copyright-text' }, footerData.copyright);
+    copyright.appendChild(copyrightText);
+
+    // Important links
+    const importantLinks = createElement('div', { class: 'footer-important-links' });
+    const importantLinksList = createElement('ul', { class: 'footer-important-list' });
+
+    footerData.importantLinks.forEach(link => {
+        const li = createElement('li', { class: 'footer-important-item' });
+        const a = createElement('a', { href: link.href, class: 'footer-important-link' }, link.text);
+        li.appendChild(a);
+        importantLinksList.appendChild(li);
+    });
+
+    importantLinks.appendChild(importantLinksList);
+
+    secondRow.appendChild(copyright);
+    secondRow.appendChild(importantLinks);
+
+    footerContainer.appendChild(firstRow);
+    footerContainer.appendChild(secondRow);
+    section.appendChild(footerContainer);
+}
+
 renderHero(hero)
 renderServices(services)
 renderFacilities(facilities)
 renderSites(sites)
 renderAdvantages(advantages)
+renderFooter(footer)
