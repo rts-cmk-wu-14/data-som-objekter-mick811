@@ -190,7 +190,44 @@ function renderSites(sitesData) {
     section.appendChild(sitesContainer);
 }
 
+function renderAdvantages(advantagesData) {
+    const section = document.querySelector('.advantages');
+    if (!section) return;
+
+    const advantagesContainer = createElement('section', { class: 'advantages-container' });
+
+    // Main headline
+    const mainHeadline = createElement('h2', { class: 'advantages-main-headline' }, 'Our Advantages');
+    advantagesContainer.appendChild(mainHeadline);
+
+    // Advantages grid
+    const advantagesGrid = createElement('div', { class: 'advantages-options-grid' });
+
+    advantagesData.forEach(advantage => {
+        const advantageItem = createElement('article', { class: 'advantage-option' });
+
+        const icon = createElement('img', {
+            src: advantage.icon,
+            alt: advantage.headline,
+            class: 'advantage-icon'
+        });
+
+        const headline = createElement('h3', { class: 'advantage-headline' }, advantage.headline);
+        const text = createElement('p', { class: 'advantage-text' }, advantage.text);
+
+        advantageItem.appendChild(icon);
+        advantageItem.appendChild(headline);
+        advantageItem.appendChild(text);
+
+        advantagesGrid.appendChild(advantageItem);
+    });
+
+    advantagesContainer.appendChild(advantagesGrid);
+    section.appendChild(advantagesContainer);
+}
+
 renderHero(hero)
 renderServices(services)
 renderFacilities(facilities)
 renderSites(sites)
+renderAdvantages(advantages)
